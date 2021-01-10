@@ -19,14 +19,17 @@ footer {
 }
 
 table, td, tr {
-border: solid; 4px; #2A313A;
+    border: solid; 4px; #2A313A;
+    background-color:#F0F2F1;
+
 }
 
 h3{
     text-align: center;
+    text-decoration:underline;
 }
 
 /*
 Color palette: #2A313A;
-#6B6D76; #F0A71E; #$F0F2F1; #949A9D;
+#6B6D76; #F0A71E; #F0F2F1; #949A9D;
 */

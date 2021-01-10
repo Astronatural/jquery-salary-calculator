@@ -8,8 +8,6 @@ $(document).ready(function () {
         const jobTitle = $("#jT").val();
         const annualSalary = $("#aS").val();
         addEmployee(firstName, lastName, idNumber, jobTitle, annualSalary);
-        
-        
     });
 
 })
@@ -20,20 +18,27 @@ function addEmployee(firstName, lastName, idNumber, jobTitle, annualSalary){
                         <td>${lastName}</td>
                         <td>${idNumber}</td>
                         <td>${jobTitle}</td>
-                        <td>${annualSalary}</td> 
+                        <td>${annualSalary}</td>
+                        <td>
+                            <button id="delBut" style="color:red;" >Fire Them!!!</button>
+                        </td>
                       </tr>`);
     $('input').val('');
-}
+    $('table').on('click', '#delBut', function(event) {        
+        const fired = $(event.target);
+        fired.closest('tr').remove();
+    }) //empTab closed
+} //addEmployee closed
 
-
-
-
+// where should the deleteEmp function go? Outside, since its an independant func.
+//nope, at the end of addEmployee
 
 
 // sum the annual salaries and /12.
-// Append above to h3.
-// If monthly cost > 25k, change the background to red.
-
+// Append above to h3.  set annualSalary to number. number(annualSalary)
+// If monthly cost > 25k, change the background to red. 
+// --- Use a .toggleClass, so it can go back to black, if I get that far.
+// should be called after addEmployee?
 
 // The delete button to remove an employee from the table.
 
