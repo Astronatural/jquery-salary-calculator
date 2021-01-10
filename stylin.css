@@ -4,9 +4,9 @@ body{
 
 header{
     background-color:#2A313A;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
-    font-size: 35px;
+    font-size: 75px;
     color: #F0A71E;
 }
 
@@ -18,6 +18,13 @@ footer {
     color: #F0A71E;    
 }
 
+table, td, tr {
+border: solid; 4px; #2A313A;
+}
+
+h3{
+    text-align: center;
+}
 
 /*
 Color palette: #2A313A;
