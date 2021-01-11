@@ -8,9 +8,34 @@ $(document).ready(function () {
         const jobTitle = $("#jT").val();
         const annualSalary = $("#aS").val();
         addEmployee(firstName, lastName, idNumber, jobTitle, annualSalary);
-    });
+        (salArr).push(annualSalary);
+        monthCost();
+    }); // close SubBut
+    // sum the annual salaries and /12.
 
-})
+    function monthCost(){
+        $("#TMC").empty();
+        let numSalArr = salArr.map(Number);
+        let costSum = 0;
+        costSum = ((numSalArr.reduce(adder))/12);
+        function adder(total, num) {
+            return total + num;
+        };
+        // costSum += Number(salArr)/12;
+        $("#TMC").append(`<span> ${costSum} </span>`);
+        if (costSum > 20000) {  // If monthly cost > 20k, change total monthly cost background to red. 
+            $('h3').addClass('red');
+        }
+  
+}
+        
+
+})// on ready closed
+//let test = [1,2,3,4,5]
+
+let salArr = []
+
+
 //  Add taken inputs to dom.
 function addEmployee(firstName, lastName, idNumber, jobTitle, annualSalary){
     $("table").append(`<tr>
@@ -18,7 +43,7 @@ function addEmployee(firstName, lastName, idNumber, jobTitle, annualSalary){
                         <td>${lastName}</td>
                         <td>${idNumber}</td>
                         <td>${jobTitle}</td>
-                        <td>${annualSalary}</td>
+                        <td class='toAdd' >${annualSalary}</td>
                         <td>
                             <button id="delBut" style="color:red;" >Fire Them!!!</button>
                         </td>
@@ -30,13 +55,14 @@ function addEmployee(firstName, lastName, idNumber, jobTitle, annualSalary){
     }) //empTab closed
 } //addEmployee closed
 
-// where should the deleteEmp function go? Outside, since its an independant func.
-//nope, at the end of addEmployee
-
 
 // sum the annual salaries and /12.
-// Append above to h3.  set annualSalary to number. number(annualSalary)
-// If monthly cost > 25k, change the background to red. 
+function monthCost(){
+    let costSum = $('.toAdd').val();
+    $("#TMC").append(costSum);
+}
+
+// set annualSalary to number. number(annualSalary) Append above to h3.
 // --- Use a .toggleClass, so it can go back to black, if I get that far.
 // should be called after addEmployee?
 
