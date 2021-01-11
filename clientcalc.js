@@ -17,7 +17,7 @@ $(document).ready(function () {
         $("#TMC").empty();
         let numSalArr = salArr.map(Number);
         let costSum = 0;
-        costSum = ((numSalArr.reduce(adder))/12);
+        costSum = ((numSalArr.reduce(adder))/12).toFixed(2);
         function adder(total, num) {
             return total + num;
         };
@@ -31,6 +31,7 @@ $(document).ready(function () {
         
 
 })// on ready closed
+
 //let test = [1,2,3,4,5]
 
 let salArr = []
@@ -56,21 +57,10 @@ function addEmployee(firstName, lastName, idNumber, jobTitle, annualSalary){
 } //addEmployee closed
 
 
-// sum the annual salaries and /12.
-function monthCost(){
-    let costSum = $('.toAdd').val();
-    $("#TMC").append(costSum);
-}
 
 // set annualSalary to number. number(annualSalary) Append above to h3.
 // --- Use a .toggleClass, so it can go back to black, if I get that far.
 // should be called after addEmployee?
 
-// The delete button to remove an employee from the table.
 
 
-/* useful codes:
-$('#an-input').val(); // returns the value of the input field.
-$('#an-input').val(''); // clears input text.
-
-*/
